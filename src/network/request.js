@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export function request(config) {
     //1.创建axios实例
     const instance = axios.create({
@@ -17,10 +18,10 @@ export function request(config) {
     //     // console.log(err)
     // })
     // 响应拦截  成功失败
-    instance.interceptors.response.use(res=>{
+    instance.interceptors.response.use(res => {
         // console.log(res)
         return res.data
-    },err => {
+    }, err => {
         console.log(err)
     })
     //3.发送真正请求
