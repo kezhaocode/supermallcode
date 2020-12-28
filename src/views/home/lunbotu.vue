@@ -5,12 +5,12 @@
         <img v-if="banners != null && banners.length >0" :src="banners[num].image">
       </li>
     </ul>
-<!--    <ul class="pot">-->
-<!--      <li class="yuan" :class="{white:num===0}"></li>-->
-<!--      <li class="yuan" :class="{white:num===1}"></li>-->
-<!--      <li class="yuan" :class="{white:num===2}"></li>-->
-<!--      <li class="yuan" :class="{white:num===3}"></li>-->
-<!--    </ul>-->
+    <ul class="pot">
+      <li class="yuan" :class="{white:num===0}"></li>
+      <li class="yuan" :class="{white:num===1}"></li>
+      <li class="yuan" :class="{white:num===2}"></li>
+      <li class="yuan" :class="{white:num===3}"></li>
+    </ul>
   </div>
 </template>
 
@@ -58,7 +58,9 @@ ul li {
   top: 190px;
   left: 35%;
 }
-
+.pot li{
+  float: left;
+}
 .yuan {
   width: 12px;
   height: 12px;
