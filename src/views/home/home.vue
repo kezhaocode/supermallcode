@@ -28,9 +28,7 @@ export default {
 </script>
 
 <style scoped>
-#home {
-  width: 100%;
-}
+
 
 .homenav {
   background-color: var(--color-tint);
