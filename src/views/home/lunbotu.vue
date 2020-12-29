@@ -1,9 +1,22 @@
 <template>
   <div class="lunbo">
-    <ul>
-      <li class="lunbo">
-        <img v-if="banners != null && banners.length >0" :src="banners[num].image">
-      </li>
+    <ul class="lunbolist">
+      <transition-group name="fade">
+        <li v-show="num==0" :key="1" class="lunbo">
+          <img v-if="banners != null && banners.length >0" :src="banners[num].image">
+        </li>
+        <li v-show="num==1" :key="2" class="lunbo">
+          <img v-if="banners != null && banners.length >0" :src="banners[num].image">
+        </li>
+        <li v-show="num==2" :key="3" class="lunbo">
+          <img v-if="banners != null && banners.length >0" :src="banners[num].image">
+        </li>
+        <li v-show="num==3" :key="4" class="lunbo">
+          <img v-if="banners != null && banners.length >0" :src="banners[num].image">
+        </li>
+        <!--          <img v-if="banners != null && banners.length >0" :src="banners[num].image">-->
+      </transition-group>
+
     </ul>
     <ul class="pot">
       <li class="yuan" :class="{white:num===0}"></li>
@@ -43,13 +56,21 @@ export default {
 </script>
 
 <style scoped>
-
-
-ul li {
-  list-style: none;
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.lunbolist li{
+  position: absolute;
 }
 
-.lunbo img{
+ul li{
+  list-style: none;
+
+}
+.lunbo img {
   max-width: 100%;
 }
 
@@ -58,9 +79,11 @@ ul li {
   top: 190px;
   left: 35%;
 }
-.pot li{
+
+.pot li {
   float: left;
 }
+
 .yuan {
   width: 12px;
   height: 12px;
