@@ -3,8 +3,8 @@
     <NavBar class="homenav">
       <div slot="center">购物街</div>
     </NavBar>
-    <lunbotu></lunbotu>
-    <recommendview :cssj="meg"></recommendview>
+    <lunbotu :cssj="banners"></lunbotu>
+    <recommendview :cssj="recommend"></recommendview>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
 import NavBar from "@/components/common/navbar/NavBar";
 import lunbotu from "@/views/home/lunbotu";
 import recommendview from "@/views/home/recommendview";
+import {getHomedata} from "@/network/home";
 
 export default {
   name: "home",
@@ -22,14 +23,18 @@ export default {
   },
   data() {
     return {
-      meg:111,
-
+      meg: 111,
+      recommend: [],
+      banners: []
     }
   },
   created() {
-    // 1.请求数据
-
-  }
+    getHomedata().then(res => {
+      this.banners = res.data.banner.list
+      this.recommend = res.data.recommend.list
+      // console.log(res)
+    })
+  },
 }
 </script>
 
