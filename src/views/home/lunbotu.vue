@@ -1,7 +1,8 @@
 <template>
   <div class="lunbo">
     <ul class="lunbolist" v-for="item in cssj">
-      <li class="lunbo"><img :src="item.image"></li>
+      <li class="lunbo"><a :href="item.link"><img :src="item.image"> </a></li>
+
     </ul>
 
   </div>
@@ -33,10 +34,8 @@ ul li {
 }
 
 .lunbo img {
-  max-width: 100%;
+  width: 100%;
 }
-
-
 
 
 </style>
