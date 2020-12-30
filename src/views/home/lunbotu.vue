@@ -1,22 +1,22 @@
 <template>
   <div class="lunbo">
     <ul class="lunbolist">
-      <img v-if="banners != null && banners.length >0" :src="banners[num].image">
+      <img v-if="cssj != null && cssj.length >0" :src="cssj[num].image">
     </ul>
-    <ul class="pot">
-      <li class="yuan" :class="{white:num===0}"></li>
-      <li class="yuan" :class="{white:num===1}"></li>
-      <li class="yuan" :class="{white:num===2}"></li>
-      <li class="yuan" :class="{white:num===3}"></li>
-    </ul>
+<!--    <ul class="pot">-->
+<!--      <li class="yuan" :class="{white:num===0}"></li>-->
+<!--      <li class="yuan" :class="{white:num===1}"></li>-->
+<!--      <li class="yuan" :class="{white:num===2}"></li>-->
+<!--      <li class="yuan" :class="{white:num===3}"></li>-->
+<!--    </ul>-->
   </div>
 </template>
 
 <script>
-import {getHomedata} from "@/network/home";
 
 export default {
   name: "lunbotu",
+  props:['cssj'],
   data() {
     return {
       num: 0,
@@ -30,11 +30,6 @@ export default {
         this.num = 0
       }
     }, 1500)
-    getHomedata().then(res => {
-      this.banners = res.data.banner.list
-      this.recommend = res.data.recommend.list
-      // console.log(res)
-    })
   },
   methods: {}
 }
@@ -42,10 +37,6 @@ export default {
 
 <style scoped>
 
-
-.lunbolist li {
-  /*position: absolute;*/
-}
 
 ul li {
   list-style: none;

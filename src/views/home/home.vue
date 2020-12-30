@@ -3,9 +3,23 @@
     <NavBar class="homenav">
       <div slot="center">购物街</div>
     </NavBar>
-    <lunbotu ></lunbotu>
+    <lunbotu :cssj="banners"></lunbotu>
     <recommendview :cssj="recommend"></recommendview>
     <featureview></featureview>
+    <ul>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+    </ul>
   </div>
 </template>
 
@@ -28,10 +42,12 @@ export default {
     return {
       meg: 111,
       recommend: [],
+      banners:[]
     }
   },
   created() {
     getHomedata().then(res => {
+      this.banners = res.data.banner.list
       this.recommend = res.data.recommend.list
       // console.log(res)
     })
@@ -40,9 +56,16 @@ export default {
 </script>
 
 <style scoped>
-
+#home{
+  padding-top:44px ;
+}
 
 .homenav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
   background-color: var(--color-tint);
   color: white;
 }
