@@ -3,8 +3,9 @@
     <NavBar class="homenav">
       <div slot="center">购物街</div>
     </NavBar>
-    <lunbotu :cssj="banners"></lunbotu>
+    <lunbotu ></lunbotu>
     <recommendview :cssj="recommend"></recommendview>
+    <featureview></featureview>
   </div>
 </template>
 
@@ -13,24 +14,24 @@ import NavBar from "@/components/common/navbar/NavBar";
 import lunbotu from "@/views/home/lunbotu";
 import recommendview from "@/views/home/recommendview";
 import {getHomedata} from "@/network/home";
+import featureview from "@/views/home/featureview";
 
 export default {
   name: "home",
   components: {
     NavBar,
     lunbotu,
-    recommendview
+    recommendview,
+    featureview
   },
   data() {
     return {
       meg: 111,
       recommend: [],
-      banners: []
     }
   },
   created() {
     getHomedata().then(res => {
-      this.banners = res.data.banner.list
       this.recommend = res.data.recommend.list
       // console.log(res)
     })

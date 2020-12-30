@@ -1,15 +1,13 @@
-// module.exports = {
-//     resolve: {
-//         configureWebpack: {
-//             resolve: {
-//                 // extensions
-//                 // 配置别名
-//                 alias: {
-//                     // 将项目根目录中，src的路径配置为别名@
-//                     'assets': '/assets',
-//                 }
-//             }
-//         }
-//     }
-//
-// }
+module.exports = {
+    configureWebpack: {
+        resolve: {
+            alias: { //配置别名,修改后需要重新编译才能生效
+                'assets': '@/assets',
+                'common': '@/common',
+                'components': '@/components',
+                'network': '@/network',
+                'views': '@/views',
+            }
+        }
+    }
+}
