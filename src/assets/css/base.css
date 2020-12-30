@@ -32,7 +32,6 @@ a {
     text-decoration: none;
 }
 
-
 .clear-fix::after {
     clear: both;
     content: '';
@@ -46,11 +45,11 @@ a {
     zoom: 1;
 }
 
-.left {
-    float: left;
-}
+/*.left {*/
+/*    float: left;*/
+/*}*/
 
-.right {
-    float: right;
-}
+/*.right {*/
+/*    float: right;*/
+/*}*/
 

@@ -26,7 +26,6 @@ img {
 .recommend {
   margin: 10px 0;
   text-align: center;
-  /*float: left;*/
   display: flex;
   width: 100%;
   padding-bottom:20px ;
@@ -36,9 +35,6 @@ img {
 
 .recommenditem {
   flex: 1;
-}
-.border{
-
 }
 
 </style>
