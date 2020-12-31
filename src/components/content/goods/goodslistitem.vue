@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .goodslistitem{
+  width: 48%;
   padding-bottom: 40px;
   position: relative;
 }

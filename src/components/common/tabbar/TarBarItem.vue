@@ -53,7 +53,7 @@ export default {
 }
 
 .tab-bar-item img {
-  width: 24px;
+  width: 28x;
   height: 24px;
 }
 

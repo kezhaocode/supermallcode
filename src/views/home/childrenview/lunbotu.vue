@@ -1,7 +1,7 @@
 <template>
   <div class="lunbo">
     <ul class="lunbolist">
-      <img v-if="cssj != null && cssj.length >0" :src="cssj[num].image">
+      <img v-if="cssj != null && cssj.length >0" :src="cssj[1].image">
     </ul>
 <!--    <ul class="pot">-->
 <!--      <li class="yuan" :class="{white:num===0}"></li>-->
@@ -24,12 +24,12 @@ export default {
     }
   },
   created() {
-    this.timer = setInterval(() => {
-      this.num++
-      if (this.num > 3) {
-        this.num = 0
-      }
-    }, 1500)
+    // this.timer = setInterval(() => {
+    //   this.num++
+    //   if (this.num > 3) {
+    //     this.num = 0
+    //   }
+    // }, 1500)
   },
   methods: {}
 }

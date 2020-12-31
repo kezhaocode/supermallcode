@@ -18,9 +18,9 @@ export default {
 
 <style scoped>
 .goodslist{
-  /*display: flex;*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-goodslistitem{
 
-}
 </style>
