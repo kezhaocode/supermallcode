@@ -17,5 +17,10 @@ export default {
 </script>
 
 <style scoped>
+.goodslist{
+  /*display: flex;*/
+}
+goodslistitem{
 
+}
 </style>

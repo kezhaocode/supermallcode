@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .tabcontrol{
+  z-index: 999;
   display: flex;
   text-align: center;
   font-size: 16px;
