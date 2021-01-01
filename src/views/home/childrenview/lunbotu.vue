@@ -1,14 +1,14 @@
 <template>
   <div class="lunbo">
-    <ul class="lunbolist">
-      <img v-if="cssj != null && cssj.length >0" :src="cssj[1].image">
-    </ul>
-<!--    <ul class="pot">-->
-<!--      <li class="yuan" :class="{white:num===0}"></li>-->
-<!--      <li class="yuan" :class="{white:num===1}"></li>-->
-<!--      <li class="yuan" :class="{white:num===2}"></li>-->
-<!--      <li class="yuan" :class="{white:num===3}"></li>-->
-<!--    </ul>-->
+    <template>
+      <Carousel autoplay v-model="value2" loop>
+        <CarouselItem v-for="item in cssj">
+          <div class="demo-carousel"><img :src="item.image"></div>
+        </CarouselItem>
+      </Carousel>
+    </template>
+
+
   </div>
 </template>
 
@@ -16,22 +16,12 @@
 
 export default {
   name: "lunbotu",
-  props:['cssj'],
+  props: ['cssj'],
   data() {
     return {
-      num: 0,
-      banners: [],
+      value2: 0
     }
-  },
-  created() {
-    // this.timer = setInterval(() => {
-    //   this.num++
-    //   if (this.num > 3) {
-    //     this.num = 0
-    //   }
-    // }, 1500)
-  },
-  methods: {}
+  }
 }
 </script>
 
@@ -47,26 +37,5 @@ ul li {
   width: 100%;
 }
 
-.pot {
-  position: absolute;
-  top: 25%;
-  left: 35%;
-}
-
-.pot li {
-  float: left;
-}
-
-.yuan {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: brown;
-  margin: 5px 8px;
-}
-
-.white {
-  background-color: white;
-}
 
 </style>

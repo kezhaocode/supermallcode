@@ -24,6 +24,7 @@ img {
 }
 
 .recommend {
+  /*margin-top: 375px;*/
   margin: 10px 0;
   text-align: center;
   display: flex;

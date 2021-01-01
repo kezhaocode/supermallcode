@@ -7,7 +7,7 @@
     <recommendview :cssj="recommend"></recommendview>
     <featureview></featureview>
     <tab-control @tabclick="tabclick" class="tab-control" :title="['流行','新款','精选']"></tab-control>
-    <goodslist :goods="goods[currentindex].list"></goodslist>
+    <goodslist :goods="showgoods"></goodslist>
     <ul>
       <li>1</li>
       <li>1</li>
@@ -49,6 +49,11 @@ export default {
       currentindex: 'pop'
     }
   },
+  computed: {
+    showgoods() {
+      return this.goods[this.currentindex].list
+    }
+  },
   created() {
     this.getHomedata()
     this.gethomegoods('pop')
@@ -80,7 +85,7 @@ export default {
     gethomegoods(type) {
       const page = this.goods[type].page + 1
       gethomegoods(type, page).then(res => {
-        console.log(res)
+        // console.log(res)
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1
       })
@@ -88,7 +93,7 @@ export default {
     gethomegoods1(type) {
       const page = this.goods[type].page + 1
       gethomegoods1(type, page).then(res => {
-        console.log(res)
+        // console.log(res)
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1
       })
@@ -96,7 +101,7 @@ export default {
     gethomegoods2(type) {
       const page = this.goods[type].page + 1
       gethomegoods2(type, page).then(res => {
-        console.log(res)
+        // console.log(res)
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1
       })
