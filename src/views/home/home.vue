@@ -6,9 +6,14 @@
     <lunbotu :cssj="banners"></lunbotu>
     <recommendview :cssj="recommend"></recommendview>
     <featureview></featureview>
-    <tab-control class="tab-control" :title="['流行','新款','精选']"></tab-control>
-    <goodslist :goods="goods['pop'].list"></goodslist>
-
+    <tab-control @tabclick="tabclick" class="tab-control" :title="['流行','新款','精选']"></tab-control>
+    <goodslist :goods="goods[currentindex].list"></goodslist>
+    <ul>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+    </ul>
   </div>
 </template>
 
@@ -20,7 +25,7 @@ import featureview from "@/views/home/childrenview/featureview";
 import tabControl from "@/components/content/tabControl/tabControl";
 import NavBar from "@/components/common/navbar/NavBar";
 import goodslist from "@/components/content/goods/goodslist";
-import {getHomedata, gethomegoods} from "@/network/home";
+import {getHomedata, gethomegoods, gethomegoods1, gethomegoods2} from "@/network/home";
 
 export default {
   name: "home",
@@ -40,16 +45,31 @@ export default {
         'pop': {page: 0, list: []},
         'new': {page: 0, list: []},
         'sell': {page: 0, list: []},
-      }
+      },
+      currentindex: 'pop'
     }
   },
   created() {
     this.getHomedata()
     this.gethomegoods('pop')
-    this.gethomegoods('new')
-    this.gethomegoods('sell')
+    this.gethomegoods1('new')
+    this.gethomegoods2('sell')
   },
   methods: {
+    tabclick(index) {
+      // console.log(index)
+      switch (index) {
+        case 0:
+          this.currentindex = 'pop'
+          break
+        case 1:
+          this.currentindex = 'new'
+          break
+        case 2:
+          this.currentindex = 'sell'
+          break
+      }
+    },
     getHomedata() {
       getHomedata().then(res => {
         this.banners = res.data.banner.list
@@ -60,6 +80,22 @@ export default {
     gethomegoods(type) {
       const page = this.goods[type].page + 1
       gethomegoods(type, page).then(res => {
+        console.log(res)
+        this.goods[type].list.push(...res.data.list)
+        this.goods[type].page += 1
+      })
+    },
+    gethomegoods1(type) {
+      const page = this.goods[type].page + 1
+      gethomegoods1(type, page).then(res => {
+        console.log(res)
+        this.goods[type].list.push(...res.data.list)
+        this.goods[type].page += 1
+      })
+    },
+    gethomegoods2(type) {
+      const page = this.goods[type].page + 1
+      gethomegoods2(type, page).then(res => {
         console.log(res)
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1

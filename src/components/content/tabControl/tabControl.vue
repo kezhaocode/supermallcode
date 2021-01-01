@@ -18,6 +18,7 @@ export default {
   methods:{
     itemclick(index){
       this.currenindex=index
+      this.$emit('tabclick',index)
     }
   },
   props: ['title']
