@@ -8,12 +8,7 @@
     <featureview></featureview>
     <tab-control @tabclick="tabclick" class="tab-control" :title="['流行','新款','精选']"></tab-control>
     <goodslist :goods="showgoods"></goodslist>
-    <ul>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-      <li>1</li>
-    </ul>
+    <div style="height: 43px"></div>
   </div>
 </template>
 
