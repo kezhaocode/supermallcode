@@ -13,7 +13,7 @@ const home = () => import('../views/home/home')
 const profile = () => import('../views/profile/profile')
 const cart = () => import('../views/cart/cart')
 const category = () => import('../views/category/category')
-
+const detail =()=> import('../views/detail/detail')
 const routes = [
     {
         path: '',
@@ -35,6 +35,10 @@ const routes = [
     {
         path: '/profile',
         component: profile
+    },
+    {
+        path: '/detail/:id',
+        component:detail
     }
 
 ]

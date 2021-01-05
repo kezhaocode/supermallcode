@@ -3,24 +3,28 @@
     <NavBar class="homenav">
       <div slot="center">购物街</div>
     </NavBar>
-    <lunbotu :cssj="banners"></lunbotu>
-    <recommendview :cssj="recommend"></recommendview>
-    <featureview></featureview>
-    <tab-control @tabclick="tabclick" class="tab-control" :title="['流行','新款','精选']"></tab-control>
-    <goodslist :goods="showgoods"></goodslist>
+    <Scroll class="content1">
+      <lunbotu :cssj="banners"></lunbotu>
+      <recommendview :cssj="recommend"></recommendview>
+      <featureview></featureview>
+      <tab-control @tabclick="tabclick" class="tab-control" :title="['流行','新款','精选']"></tab-control>
+      <goodslist :goods="showgoods"></goodslist>
+    </Scroll>
+    <backtop></backtop>
     <div style="height: 43px"></div>
   </div>
 </template>
 
 <script>
+import Scroll from "../../components/common/Scroll/Scroll";
 import lunbotu from "@/views/home/childrenview/lunbotu";
 import recommendview from "@/views/home/childrenview/recommendview";
 import featureview from "@/views/home/childrenview/featureview";
-
 import tabControl from "@/components/content/tabControl/tabControl";
 import NavBar from "@/components/common/navbar/NavBar";
 import goodslist from "@/components/content/goods/goodslist";
 import {getHomedata, gethomegoods, gethomegoods1, gethomegoods2} from "@/network/home";
+import backtop from "../../components/common/Scroll/backtop";
 
 export default {
   name: "home",
@@ -30,7 +34,10 @@ export default {
     recommendview,
     featureview,
     tabControl,
-    goodslist
+    goodslist,
+    Scroll,
+    backtop
+
   },
   data() {
     return {
@@ -107,6 +114,14 @@ export default {
 
 
 <style scoped>
+.content1 {
+  position: absolute;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+}
+
 .homenav {
   background-color: var(--color-tint);
   color: white;
@@ -114,11 +129,12 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9;
+  z-index: 10009;
 }
 
 #home {
-  margin-top: 44px;
+  height: 100vh;
+  /*position: relative;*/
 }
 
 .tab-control {

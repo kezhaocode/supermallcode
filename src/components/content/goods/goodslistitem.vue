@@ -1,5 +1,5 @@
 <template>
-  <div class="goodslistitem">
+  <div class="goodslistitem" @click="itemclick">
     <img :src="goodsitem.show.img">
     <div class="goodjs">
       <p>{{ goodsitem.title }}</p>
@@ -13,7 +13,13 @@
 <script>
 export default {
   name: "goodslistitem",
-  props: ['goodsitem']
+  props: ['goodsitem'],
+  methods:{
+    itemclick(){
+      // console.log('11')
+    this.$router.push('/detail/'+this.goodsitem.iid)
+    }
+  }
 }
 </script>
 
