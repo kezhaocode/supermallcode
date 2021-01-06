@@ -1,6 +1,7 @@
 <template>
-<div class="backtop" @click="backclick">
-  <img src="../../../assets/img/scroll/top.png">
+<div class="backtop" >
+<!--  <img src="../../../assets/img/scroll/top.png">-->
+  <img src="@/assets/img/scroll/top.png">
 </div>
 </template>
 
@@ -8,9 +9,7 @@
 export default {
   name: "backtop",
   methods:{
-    backclick(){
-      console.log('11')
-    }
+
   }
 }
 </script>

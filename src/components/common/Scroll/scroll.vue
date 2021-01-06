@@ -1,0 +1,56 @@
+<template>
+  <div class="wrapper" ref="wrapper">
+    <div class="content">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+import BScroll from '@better-scroll/core'
+import Pullup from '@better-scroll/pull-up'
+import ObserveDom from '@better-scroll/observe-dom'
+
+BScroll.use(ObserveDom)
+
+BScroll.use(Pullup)
+
+export default {
+  name: "Scroll",
+  props: {
+    probeType: {
+      type: Number,
+      default: 0
+    },
+    pullUpLoad: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      scroll: null,
+    }
+  },
+  mounted() {
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      observeDOM: true,
+      click: true,
+      probeType: this.probeType,
+      pullUpLoad: this.pullUpLoad
+    })
+    //监听位置
+    this.scroll.on('scroll', (position) => {
+      this.$emit('scroll', position)
+    })
+    //监听滚到底部上拉加载更多
+    this.scroll.on('pullingUp', () => {
+      this.$emit('pullingUp')
+    })
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
