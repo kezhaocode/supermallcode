@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <MainTabbar></MainTabbar>
-    <router-view/>
+
   </div>
 </template>
 <script>

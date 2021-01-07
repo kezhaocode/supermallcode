@@ -16,7 +16,6 @@ export default {
   props: ['goodsitem'],
   methods:{
     itemclick(){
-      // console.log('11')
     this.$router.push('/detail/'+this.goodsitem.iid)
     }
   }

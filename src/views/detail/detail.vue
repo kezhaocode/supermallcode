@@ -1,23 +1,31 @@
 <template>
-<div>
-  <NavBar><div slot="center">详情页</div></NavBar>
-</div>
+  <div>
+    <detailnavbar></detailnavbar>
+  </div>
 </template>
 
 <script>
-import NavBar from "../../components/common/navbar/NavBar";
+
+import Detailnavbar from "./childcomp/detailnavbar";
+import {getDetail} from "../../network/detail";
+
 export default {
   name: "detail",
-  data(){
-    return{
-      iid:null
+  data() {
+    return {
+      iid: null
     }
   },
-  components:{
-    NavBar
+  components: {
+    Detailnavbar,
   },
   created() {
-    this.iid=this.$route.params.id
+    // 1.保持存入的iid
+    this.iid=this.$route.params.iid
+    //2.根据iid 请求详情数据
+    getDetail(this.iid).then(res =>{
+      console.log(res)
+    })
   }
 }
 </script>

@@ -10,9 +10,10 @@
 import BScroll from '@better-scroll/core'
 import Pullup from '@better-scroll/pull-up'
 import ObserveDom from '@better-scroll/observe-dom'
+import ObserveImage from '@better-scroll/observe-image'
 
+BScroll.use(ObserveImage)
 BScroll.use(ObserveDom)
-
 BScroll.use(Pullup)
 
 export default {
@@ -33,9 +34,11 @@ export default {
     }
   },
   mounted() {
+
     this.scroll = new BScroll(this.$refs.wrapper, {
       observeDOM: true,
       click: true,
+      observeImage: true,
       probeType: this.probeType,
       pullUpLoad: this.pullUpLoad
     })

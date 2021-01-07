@@ -26,7 +26,7 @@ import featureview from "@/views/home/childrenview/featureview";
 import tabControl from "@/components/content/tabControl/tabControl";
 import NavBar from "@/components/common/navbar/NavBar";
 import goodslist from "@/components/content/goods/goodslist";
-import {getHomedata, gethomegoods, gethomegoods1, gethomegoods2} from "@/network/home";
+import {getHomedata, gethomegoods} from "@/network/home";
 import backtop from "../../components/common/Scroll/backtop";
 import Scroll from "../../components/common/Scroll/scroll";
 
@@ -52,7 +52,8 @@ export default {
         'sell': {page: 0, list: []},
       },
       currentindex: 'pop',
-      isshow: null
+      isshow: null,
+      saveY: 0
     }
   },
   computed: {
@@ -63,9 +64,17 @@ export default {
   created() {
     this.getHomedata()
     this.gethomegoods('pop')
-    this.gethomegoods1('new')
-    this.gethomegoods2('sell')
+    this.gethomegoods('new')
+    this.gethomegoods('sell')
   },
+  activated() {
+    this.$refs.scroll.scroll.scrollTo(0, this.saveY, 0)
+
+  },
+  deactivated() {
+    this.saveY = this.$refs.scroll.scroll.y
+  },
+
   methods: {
     tabclick(index) {
       // console.log(index)
@@ -86,12 +95,9 @@ export default {
     },
     loadmore() {
       this.gethomegoods(this.currentindex)
-      this.gethomegoods1(this.currentindex)
-      this.gethomegoods2(this.currentindex)
     },
     backclick() {
       //当我们需要监听一个组件原生事件的时候需要加上native
-      // console.log( this.$refs.scroll.scroll)
       this.$refs.scroll.scroll.scrollTo(0, 0, 500)
     },
     getHomedata() {
@@ -107,26 +113,9 @@ export default {
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1
         this.$refs.scroll.scroll.finishPullUp()
+
       })
-    },
-    gethomegoods1(type) {
-      const page = this.goods[type].page + 1
-      gethomegoods1(type, page).then(res => {
-        // console.log(res)
-        this.goods[type].list.push(...res.data.list)
-        this.goods[type].page += 1
-        this.$refs.scroll.scroll.finishPullUp()
-      })
-    },
-    gethomegoods2(type) {
-      const page = this.goods[type].page + 1
-      gethomegoods2(type, page).then(res => {
-        // console.log(res)
-        this.goods[type].list.push(...res.data.list)
-        this.goods[type].page += 1
-        this.$refs.scroll.scroll.finishPullUp()
-      })
-    },
+    }
 
   }
 }
