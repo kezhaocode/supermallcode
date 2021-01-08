@@ -7,8 +7,6 @@
         </CarouselItem>
       </Carousel>
     </template>
-
-
   </div>
 </template>
 

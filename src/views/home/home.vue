@@ -53,7 +53,7 @@ export default {
       },
       currentindex: 'pop',
       isshow: null,
-      saveY: 0
+      scrollY: 0
     }
   },
   computed: {
@@ -66,13 +66,6 @@ export default {
     this.gethomegoods('pop')
     this.gethomegoods('new')
     this.gethomegoods('sell')
-  },
-  activated() {
-    this.$refs.scroll.scroll.scrollTo(0, this.saveY, 0)
-
-  },
-  deactivated() {
-    this.saveY = this.$refs.scroll.scroll.y
   },
 
   methods: {
@@ -113,7 +106,6 @@ export default {
         this.goods[type].list.push(...res.data.list)
         this.goods[type].page += 1
         this.$refs.scroll.scroll.finishPullUp()
-
       })
     }
 

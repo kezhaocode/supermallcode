@@ -22,7 +22,10 @@ const routes = [
     },
     {
         path: '/home',
-        component: home
+        component: home,
+        meta: {
+            keepAlive: true // 需要缓存
+        }
     },
     {
         path: '/cart',
@@ -38,7 +41,10 @@ const routes = [
     },
     {
         path: '/detail/:iid',
-        component:detail
+        component:detail,
+        meta: {
+            keepAlive: true // 需要缓存
+        }
     }
 
 ]
