@@ -6,7 +6,7 @@
       </div>
       <div slot="center" class="title">
         <div v-for="(item,index) in titles"
-             :class="{active:index===currentindex}"
+             :class="{active:index===scrollcs||index===currentindex}"
              class="itemtitle" @click="itemclick(index)">{{ item }}
         </div>
       </div>
@@ -20,6 +20,7 @@ import NavBar from "../../../components/common/navbar/NavBar";
 export default {
   name: "detailnavbar",
   components: {NavBar},
+  props:['scrollcs'],
   data() {
     return {
       titles: ['商品', '参数', '评论', '推荐'],
@@ -29,7 +30,8 @@ export default {
   methods: {
     itemclick(index) {
       this.currentindex = index
-      console.log(this.currentindex)
+      // console.log(this.currentindex)
+      this.$emit('titileclick',index)
     },
     back() {
       this.$router.go(-1)
