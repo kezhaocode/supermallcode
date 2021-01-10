@@ -3,18 +3,18 @@
     <NavBar class="homenav">
       <div slot="center">购物街</div>
     </NavBar>
-    <scroll class="content1" ref="scroll"
+    <scroll ref="scroll" :probe-type="3"
             :pull-up-load="true"
-            :probe-type="3"
+            class="content1"
             @pullingUp="loadmore"
             @scroll='scrollshow'>
       <lunbotu :cssj="banners"></lunbotu>
       <recommendview :cssj="recommend"></recommendview>
       <featureview></featureview>
-      <tab-control @tabclick="tabclick" class="tab-control" :title="['流行','新款','精选']"></tab-control>
+      <tab-control :title="['流行','新款','精选']" class="tab-control" @tabclick="tabclick"></tab-control>
       <goodslist :goods="showgoods"></goodslist>
     </scroll>
-    <backtop @click.native="backclick" v-show="isshow"></backtop>
+    <backtop v-show="isshow" @click.native="backclick"></backtop>
     <div style="height: 43px"></div>
   </div>
 </template>

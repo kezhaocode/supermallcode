@@ -14,24 +14,26 @@
 export default {
   name: "goodslistitem",
   props: ['goodsitem'],
-  methods:{
-    itemclick(){
-    this.$router.push('/detail/'+this.goodsitem.iid)
+  methods: {
+    itemclick() {
+      this.$router.push('/detail/' + this.goodsitem.iid)
     }
   }
 }
 </script>
 
 <style scoped>
-.goodslistitem{
+.goodslistitem {
   width: 48%;
   padding-bottom: 40px;
   position: relative;
 }
-.goodslistitem img{
+
+.goodslistitem img {
   width: 100%;
   border-radius: 5px;
 }
+
 .goodjs {
   font-size: 12px;
   position: absolute;
@@ -41,21 +43,25 @@ export default {
   overflow: hidden;
   text-align: center;
 }
-.goodjs p{
+
+.goodjs p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-bottom: 3px;
 }
-.goodjs .price{
+
+.goodjs .price {
   color: var(--color-high-text);
   margin-right: 20px;
 }
-.goodjs .collect{
+
+.goodjs .collect {
   position: relative;
 
 }
-.goodjs .collect::after{
+
+.goodjs .collect::after {
   content: '';
   position: absolute;
   left: -15px;

@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="kk">
     <NavBar>
-      <div slot="left" @click="back" class="back">
+      <div slot="left" class="back" @click="back">
         <img src="@/assets/img/common/back.svg">
       </div>
       <div slot="center" class="title">
-        <div class="itemtitle"
+        <div v-for="(item,index) in titles"
              :class="{active:index===currentindex}"
-             @click="itemclick(index)" v-for="(item,index) in titles">{{ item }}
+             class="itemtitle" @click="itemclick(index)">{{ item }}
         </div>
       </div>
     </NavBar>
@@ -54,4 +54,5 @@ export default {
 .back {
   margin-top: 6px;
 }
+
 </style>

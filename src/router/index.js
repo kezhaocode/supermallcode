@@ -13,7 +13,7 @@ const home = () => import('../views/home/home')
 const profile = () => import('../views/profile/profile')
 const cart = () => import('../views/cart/cart')
 const category = () => import('../views/category/category')
-const detail =()=> import('../views/detail/detail')
+const detail = () => import('../views/detail/detail')
 const routes = [
     {
         path: '',
@@ -23,9 +23,7 @@ const routes = [
     {
         path: '/home',
         component: home,
-        meta: {
-            keepAlive: true // 需要缓存
-        }
+
     },
     {
         path: '/cart',
@@ -41,10 +39,8 @@ const routes = [
     },
     {
         path: '/detail/:iid',
-        component:detail,
-        meta: {
-            keepAlive: true // 需要缓存
-        }
+        component: detail,
+
     }
 
 ]

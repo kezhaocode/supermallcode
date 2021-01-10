@@ -5,15 +5,17 @@ export function getHomedata() {
         url: '/home/multidata'
     })
 }
-export function gethomegoods(type,page){
+
+export function gethomegoods(type, page) {
     return request({
-        url:'/home/data',
-        params:{
+        url: '/home/data',
+        params: {
             type,
             page
         }
     })
 }
+
 // export function gethomegoods1(type,page){
 //     return request({
 //         url:'/home/data?type=new&page=1',

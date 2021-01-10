@@ -1,6 +1,6 @@
 <template>
   <div class="recommend">
-    <div class="recommenditem" v-for="item in cssj">
+    <div v-for="item in cssj" class="recommenditem">
       <a :href="item.link">
         <img :src="item.image">
         <div>{{ item.title }}</div>
@@ -29,7 +29,7 @@ img {
   text-align: center;
   display: flex;
   width: 100%;
-  padding-bottom:20px ;
+  padding-bottom: 20px;
   border-bottom: 9px solid #eee;
 
 }

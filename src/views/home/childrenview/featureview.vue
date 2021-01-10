@@ -1,19 +1,19 @@
 <template>
-<div class="feature">
-  <a href="">
-    <img src="../../../../src/assets/img/home/img.png">
-  </a>
-</div>
+  <div class="feature">
+    <a href="">
+      <img src="../../../../src/assets/img/home/img.png">
+    </a>
+  </div>
 </template>
 
 <script>
 export default {
-name: "featureview"
+  name: "featureview"
 }
 </script>
 
 <style scoped>
-.feature img{
+.feature img {
   width: 100%;
 }
 </style>

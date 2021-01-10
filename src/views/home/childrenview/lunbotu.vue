@@ -1,7 +1,7 @@
 <template>
   <div class="lunbo">
     <template>
-      <Carousel autoplay v-model="value2" loop>
+      <Carousel v-model="value2" autoplay loop>
         <CarouselItem v-for="item in cssj">
           <div class="demo-carousel"><img :src="item.image"></div>
         </CarouselItem>

@@ -1,6 +1,7 @@
 <template>
   <div class="tabcontrol">
-    <div class="tabcontrolitem" v-for="(item,index) in title" :class="{active:index===currenindex}" @click="itemclick(index)">
+    <div v-for="(item,index) in title" :class="{active:index===currenindex}" class="tabcontrolitem"
+         @click="itemclick(index)">
       <span>{{ item }}</span>
     </div>
 
@@ -10,15 +11,15 @@
 <script>
 export default {
   name: "tabControl",
-  data(){
-    return{
-      currenindex:0
+  data() {
+    return {
+      currenindex: 0
     }
   },
-  methods:{
-    itemclick(index){
-      this.currenindex=index
-      this.$emit('tabclick',index)
+  methods: {
+    itemclick(index) {
+      this.currenindex = index
+      this.$emit('tabclick', index)
     }
   },
   props: ['title']
@@ -26,22 +27,24 @@ export default {
 </script>
 
 <style scoped>
-.tabcontrol{
+.tabcontrol {
   z-index: 999;
   display: flex;
   text-align: center;
   font-size: 16px;
 }
-.tabcontrolitem{
+
+.tabcontrolitem {
   flex: 1;
   height: 40px;
   line-height: 40px;
 }
-.active
-{
-  color:var(--color-tint);
+
+.active {
+  color: var(--color-tint);
 }
-.active span{
+
+.active span {
   padding: 5px;
   border-bottom: 3px solid var(--color-tint);
 

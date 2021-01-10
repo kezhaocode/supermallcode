@@ -1,6 +1,6 @@
 <template>
   <div class="lunbo">
-    <Carousel class="lunbo" autoplay :autoplay="setting.autoplay" v-model="value2" loop>
+    <Carousel v-model="value2" :autoplay="setting.autoplay" autoplay class="lunbo" loop>
       <CarouselItem v-for="item in topimages">
         <div class="demo-carousel"><img :src="item"></div>
       </CarouselItem>
@@ -23,13 +23,11 @@ export default {
   },
   updated() {
 
-    if(this.imglength===1){
-      this.setting.autoplay=false
+    if (this.imglength === 1) {
+      this.setting.autoplay = false
     }
   },
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 

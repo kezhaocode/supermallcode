@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" ref="wrapper">
+  <div ref="wrapper" class="wrapper">
     <div class="content">
       <slot></slot>
     </div>
@@ -40,7 +40,7 @@ export default {
       click: true,
       observeImage: true,
       probeType: this.probeType,
-      pullUpLoad: this.pullUpLoad
+      pullUpLoad: true
     })
     //监听位置
     this.scroll.on('scroll', (position) => {
