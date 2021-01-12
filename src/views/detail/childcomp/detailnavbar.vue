@@ -1,5 +1,5 @@
 <template>
-  <div class="kk">
+  <div>
     <NavBar>
       <div slot="left" class="back" @click="back">
         <img src="@/assets/img/common/back.svg">
@@ -30,7 +30,7 @@ export default {
   methods: {
     itemclick(index) {
       this.currentindex = index
-      // console.log(this.currentindex)
+      console.log(this.currentindex)
       this.$emit('titileclick',index)
     },
     back() {
